@@ -1,4 +1,0 @@
-Navigate to fakercloud to get the IP Address field shown on screen
-165.97.23.183
-https://api.iplocation.net/?ip=165.97.23.183
-{'ip': '165.97.23.183', 'ip_number': '2774603703', 'ip_version': 4, 'country_name': 'United States of America', 'country_code2': 'US', 'isp': 'Haynes and Boone L.L.P.', 'response_code': '200', 'response_message': 'OK'}

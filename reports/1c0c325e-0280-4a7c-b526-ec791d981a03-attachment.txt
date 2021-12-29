@@ -1,4 +1,0 @@
-Navigate to fakercloud to get the IP Address field shown on screen
-97.201.179.98
-https://api.iplocation.net/?ip=97.201.179.98
-{'ip': '97.201.179.98', 'ip_number': '1640608610', 'ip_version': 4, 'country_name': 'United States of America', 'country_code2': 'US', 'isp': 'Verizon Wireless', 'response_code': '200', 'response_message': 'OK'}
