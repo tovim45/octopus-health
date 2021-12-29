@@ -1,15 +1,16 @@
-# wait for loader
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as E
 from selenium.webdriver.support.ui import WebDriverWait as W
 
 
 class MainPage:
-    title = 'Faker Cloud - get faked!'
+    title = 'מדריך התרופות | שירותי בריאות כללית'
     wait_time_out = 20
-
-    get_ip_address = '//*[@data-example="IP Address"]'
+    medicine_id = '//input[@id="txtServiceSearch"]'
+    search_submit = '//button[@id="searchSubmit"]'
+    locator_name = '//*[@id="medicine_search_results_list"]//child::*//child::*[1]'
+    x_search = '//input[@id="txtServiceSearch"]'
 
     def __init__(self, drv):
         self.drv = drv
@@ -19,11 +20,17 @@ class MainPage:
         print(self.title + " page title is the OK and equal to: " + self.drv.title)
         assert self.title in self.drv.title
 
-    def get_ip(self):
-        ip = self.drv.find_element_by_xpath('//*[@data-example="IP Address"]').get_attribute("value")
-        print(ip)
-        return ip
+    def enter_medicine_to_search(self, search_medicine):
+        self.wait_variable.until(E.element_to_be_clickable((By.XPATH, self.medicine_id))).clear()
+        self.wait_variable.until(E.presence_of_element_located((By.XPATH, self.medicine_id))).send_keys(search_medicine)
 
-    def wait_for_loader(self, driver):
-        WebDriverWait(driver, 20).until(EC.cli(
-            (By.XPATH, self.all_apps_names)))
+    def click_search_submit(self):
+        self.wait_variable.until(E.element_to_be_clickable((By.XPATH, self.search_submit))).click()
+
+    def get_medicine_search_results_list(self):
+        elem = self.wait_variable.until(E.element_to_be_clickable((By.XPATH, self.locator_name))).text
+        self.wait_variable.until(E.presence_of_element_located((By.XPATH, self.medicine_id))).send_keys(Keys.PAGE_UP)
+        return elem
+
+    def click_x_search(self):
+        self.wait_variable.until(E.element_to_be_clickable((By.XPATH, self.x_search))).click()
