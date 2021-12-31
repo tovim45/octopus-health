@@ -9,7 +9,7 @@ def init_driver():
     :return: driver
     """
 
-    exec_path = r"C:\automation\techsee\driver\chromedriver.exe"
+    exec_path = r"driver/chromedriver.exe"
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--incognito")
     driver = webdriver.Chrome(executable_path=exec_path, chrome_options=chrome_options)
