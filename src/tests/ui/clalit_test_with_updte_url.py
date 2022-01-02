@@ -27,7 +27,7 @@ def write_output_file(data):
 @allure.story('Story int-3061')
 @allure.severity(allure.severity_level.NORMAL)
 @allure.testcase('Test that that writes to a file the names of medications that do not have an info page in the '
-                 'Clalit medications portal with update url.')
+                 'Clalit medications portal with update url')
 def test_validate_value_of_medicine_from_clalit_portal():
     print("Navigate to Clalit web portal")
     driver = init_driver()
